@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Happy Birthday ❤️</title>
-
+<title>Happy Birthday My Love</title>
 <style>
 body{
 margin:0;
@@ -11,7 +9,7 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#ff4b7d;
+background:linear-gradient(135deg,#ff4b7d,#ff9a9e);
 font-family:sans-serif;
 color:white;
 text-align:center;
@@ -24,45 +22,42 @@ padding:40px;
 border-radius:20px;
 }
 
-h1{
-font-size:40px;
+.heart{
+position:absolute;
+animation:fall 5s linear infinite;
 }
 
-#text{
-font-size:22px;
-margin-top:20px;
+@keyframes fall{
+0%{transform:translateY(-100px);}
+100%{transform:translateY(100vh);}
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="card">
-<h1>🎂 Happy Birthday My Love ❤️</h1>
-<p id="text"></p>
-<p>From: Ganguly 💖</p>
+<h1>🎂 Happy Birthday Anju ❤️</h1>
+<p>You are the most special person in my life.</p>
+<p>I love you forever 💖</p>
+<h2>From: Ganguly</h2>
 </div>
 
-<audio autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
-
 <script>
+function createHeart(){
+let heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*30+20+"px";
+document.body.appendChild(heart);
 
-let message = "You are the most special person in my life. Thank you for coming into my life. I love you so much ❤️";
-let i = 0;
-
-function typing(){
-if(i < message.length){
-document.getElementById("text").innerHTML += message.charAt(i);
-i++;
-setTimeout(typing,50);
+setTimeout(()=>{
+heart.remove();
+},5000);
 }
-}
 
-typing();
-
+setInterval(createHeart,300);
 </script>
 
 </body>
